@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+
+:root {
+  --gray-dark: #666666;
+  --gray-light: #D9D9D9;
+  --white: #FFFFFF;
+  --peach-dark: #D8816B;
+  --peach: #DE8484;
+  --peach-light: #F4E7E7;
+  --red: #FF1616;
+  --green: #189A5D;
+  --orange: #FFA447;
+}
+
+@font-face {
+    font-family: "Marcellus";
+    src: url("/fonts/Marcellus-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("/fonts/Jost-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body{
+    font-family: "Jost", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Marcellus", "sans-serif";
+    font-weight: 400;
+}
