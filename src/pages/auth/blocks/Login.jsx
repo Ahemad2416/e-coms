@@ -58,7 +58,7 @@ const Login = () => {
         </div>
 
         {/* Button  */}
-        <Button></Button>
+        <Button children ="Sign In" btntype="sumbit" varaint="primary" isShowIcon={true}></Button>
 
       </form>
 
@@ -70,4 +70,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export {Login}

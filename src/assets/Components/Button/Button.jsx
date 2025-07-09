@@ -1,10 +1,19 @@
 import { FaArrowRight, } from "react-icons/fa6"
 
-const Button = () => {
+const Button = ({ children, btntype = "button", varaint = "primary", isShowIcon = true }) => {
+
+  const basestyle = "p-[2px] rounded-[60px]"
+
+  const varaints = {
+    primary: "bg-primary text-white"
+
+  }
+
+  varaint
   return (
     <div>
-          {/* Button  */}
-                <button
+      {/* Button  */}
+      {/* <button
                   type="button"
                   className="w-[215px] h-[55px] bg-[#DA7B67] rounded-full flex items-center p-1 mx-auto mt-[-25px]"
                 >
@@ -16,8 +25,17 @@ const Button = () => {
                     Sign In
                   </span>
         
-                </button>
-        
+                </button> */}
+
+      <button btntype={btntype} className={basestyle + " " + varaints[varaint]}>
+        {isShowIcon &&
+
+          <span><FaArrowRight /></span>
+
+        }
+
+        {children}
+      </button>
     </div>
   )
 }

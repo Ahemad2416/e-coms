@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import Login from "./pages/auth/blocks/Login";
-import Register from "./pages/auth/blocks/Register";
-import ForgetPassword from "./pages/auth/blocks/ForgetPassword";
-import ResetPassword from "./pages/auth/blocks/ResetPassword";
+import {Login} from "./pages/auth";
+import {Register} from "./pages/auth";
+import {ForgetPassword} from "./pages/auth";
+import {ResetPassword} from "./pages/auth";
 
 
 export const router = createBrowserRouter([

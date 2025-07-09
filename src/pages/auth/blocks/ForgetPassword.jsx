@@ -5,4 +5,4 @@ const ForgetPassword = () => {
   )
 }
 
-export default ForgetPassword
+export {ForgetPassword}
