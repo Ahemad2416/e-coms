@@ -1,11 +1,26 @@
 
 import { Link } from "react-router-dom"
 import Button from "../../../assets/Components/Button/Button"
+import { loginSchema } from "../../../assets/Components/Button/Core/LoginSchema"
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = loginSchema;
 
 const Login = () => {
+
+  const { register, handleSubmit, formState: { errors } } = useForm({ resolver: zodResolver(schema) })
+
+  const onSubmit = (data) => {
+    console.log(data);
+  }
+
+
+
+
   return (
     <div>
-      
+
       <div className="main w-[100%] h-[229px] bg-[#DA7B67]">
 
         {/* Login Page TItel  */}
@@ -14,7 +29,7 @@ const Login = () => {
         </div>
       </div>
 
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
 
         {/* Login Titel  */}
 
@@ -30,9 +45,13 @@ const Login = () => {
               Email Address<span className="text-red-600">*</span>
             </label>
             <input
+              {...register("email")}
               type="email"
               className="w-full border border-gray-300 rounded px-3 py-2"
             />
+
+            {/* Validation Error Tag Show*/}
+            <span className='text-red-600 mt-2 text-sm'>{errors.email ? errors.email.message : ""}</span>
           </div>
 
           {/* Password  */}
@@ -42,32 +61,38 @@ const Login = () => {
               Password<span className="text-red-600">*</span>
             </label>
             <input
+              {...register("password")}
               type="password"
               className="w-full border border-gray-300 rounded px-3 py-2"
             />
+            {/* Validation Error Tag Show*/}
+            <span className='text-red-600 mt-2 text-sm'>{errors.password ? errors.password.message : ""}</span>
           </div>
 
           {/* Forget Password  */}
 
           <div className="mb-[15px] text-[15px] font-normal">
             <p className="underline text-sm opacity-50 cursor-pointer">
-              Forgot Password?
+             <Link to={"/auth/forget"}>Forgot Password?</Link>
             </p>
           </div>
 
         </div>
 
         {/* Button  */}
-        <Button children ="Sign In" btntype="sumbit" varaint="primary" isShowIcon={true}></Button>
+        <div className="flex items-center justify-center mt-[-30px]">
+          <Button children="Sign In" btntype="sumbit" varaint="primary" isShowIcon={true}></Button>
+        </div>
+
 
       </form>
 
       <div className="text-center mt-[20px]">
-        <span>Not a member?</span> <Link className="font-medium underline">Create an account</Link>
+        <span>Not a member?</span> <Link to={"/auth/register"} className="font-medium underline">Create an account</Link>
       </div>
 
     </div>
   )
 }
 
-export {Login}
+export { Login }

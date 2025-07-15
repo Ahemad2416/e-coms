@@ -1,29 +1,27 @@
 import { createBrowserRouter } from "react-router-dom";
-import {Login} from "./pages/auth";
-import {Register} from "./pages/auth";
-import {ForgetPassword} from "./pages/auth";
-import {ResetPassword} from "./pages/auth";
+import { Login } from "./pages/auth";
+import { Register } from "./pages/auth";
+import { ForgetPassword } from "./pages/auth";
+import { ResetPassword } from "./pages/auth";
+import RouterLayout from "./RouterLayout";
 
 
 export const router = createBrowserRouter([
 
     {
-        path: "/login",
-        element: <Login></Login>
-    },
+        path: "/auth",
+        element: <RouterLayout />,
 
-    {
-        path: "/register",
-        element: <Register></Register>
-    },
+        children: [
 
-    {
-        path: "/login",
-        element: <ForgetPassword></ForgetPassword>
-    },
+            { path: "login", element: <Login></Login> },
 
-    {
-        path: "/login",
-        element: <ResetPassword></ResetPassword>
-    },
+            { path: "register", element: <Register></Register> },
+
+            { path: "forget", element: <ForgetPassword></ForgetPassword> },
+
+            { path: "reset", element: <ResetPassword></ResetPassword> },
+
+        ]
+    }
 ]);
