@@ -10,10 +10,9 @@ const Register = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm({ resolver: zodResolver(schema) })
 
-  const onsumbit = (data) => {
+  const onSubmit = (data) => {
     console.log(data);
-
-  }
+  };
 
   return (
     <div>
@@ -26,7 +25,7 @@ const Register = () => {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit(onsubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
 
         {/* Login Titel  */}
 
@@ -139,7 +138,7 @@ const Register = () => {
 
         {/* Button  */}
         <div className="flex items-center justify-center mt-[-30px]">
-          <Button children="Sign In" btntype="sumbit" varaint="primary" isShowIcon={true}></Button>
+          <Button children="Sign In" btntype="submit" varaint="primary" isShowIcon={true}></Button>
         </div>
 
 
